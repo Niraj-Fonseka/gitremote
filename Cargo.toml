@@ -2,7 +2,14 @@
 name = "gitweb"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "tool for opening the current git repository from a local git directory"
+readme = "README.md"
+homepage = "https://github.com/Niraj-Fonseka/gitweb"
+repository = "https://github.com/Niraj-Fonseka/gitweb"
+keywords = ["cli", "search", "demo"]
+categories = ["command-line-utilities"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+open = "3.2.0"

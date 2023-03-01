@@ -1,20 +1,22 @@
-use std::env;
-use std::fs;
+extern crate open;
 
-fn main() -> std::io::Result<()> {
-    let path = env::current_dir()?;
+use std::process::Command;
+use std::str;
 
-    let git_path: &str = "/.git";
-    let mut pwd: String =  path.display().to_string().to_owned();
+fn main() {
+    let output = Command::new("git")
+        .arg("config")
+        .arg("--get")
+        .arg("remote.origin.url")
+        .output()
+        .expect("Failed to execute command");
 
-    pwd.push_str(git_path);
-    println!("The current directory is {}", pwd);
+    let output_str = String::from_utf8_lossy(output.stdout.as_slice());
+    let split_vector: Vec<&str> = output_str.split("@").collect();
 
+    let mut repo_url: String = "https://".to_owned();
+    let cleaned: String = str::replace(split_vector[1], ":", "/").to_owned();
+    repo_url.push_str(&cleaned);
 
-    let contents = fs::read_to_string(git_path)
-    .expect("Should have been able to read the file");
-
-    println!("With text:\n{contents}");
-
-    Ok(())
+    open::that(repo_url).unwrap();
 }
