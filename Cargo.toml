@@ -1,13 +1,13 @@
 [package]
-name = "gitweb"
+name = "GITREMOTE"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "tool for opening the current git repository from a local git directory"
 readme = "README.md"
-homepage = "https://github.com/Niraj-Fonseka/gitweb"
-repository = "https://github.com/Niraj-Fonseka/gitweb"
-keywords = ["cli", "search", "demo"]
+homepage = "https://github.com/Niraj-Fonseka/gitremote"
+repository = "https://github.com/Niraj-Fonseka/gitremote"
+keywords = ["cli", "web", "git"]
 categories = ["command-line-utilities"]
 
 
